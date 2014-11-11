@@ -4,3 +4,4 @@ flask-bootstrap
 feedparser
 beautifulsoup4
 unidecode
+Flask-QRcode

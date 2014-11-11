@@ -19,6 +19,10 @@ def create_app(config=None, configfile=None):
     # Configure app
     AppConfig(app, default_settings=config, configfile=configfile) # Use of flask-appconfig is highly recommended
     Bootstrap(app) # Use flask-bootstrap
+
+    # Use QRcodes
+    from flask.ext.qrcode import QRcode
+    QRcode(app)
     
     # Import Blueprints
     #from doifetcher.simple import simple # Use Blueprints
@@ -42,6 +46,7 @@ def create_app(config=None, configfile=None):
         from bs4 import BeautifulSoup
         from unidecode import unidecode
         from string import lower
+
         rss = feedparser.parse("http://www.aalto.fi/fi/current/news/rss.xml")
         maxEntries = 12 
         rssFormatted = []

@@ -69,6 +69,11 @@ body {
 	/*border: 1px solid red;*/
 }
 
+.portfolio-inner > p {
+	font-family: 'Nimbus Sans', 'Helvetica', sans-serif;
+	font-size: 18px;
+}
+
 .portfolio-inner p > a {
 	font-family: Sentinel, Georgia, times;
 	font-size: 14px;
@@ -79,7 +84,7 @@ body {
 }
 
 .portfolio-inner > h1 {
-	font-size: 20px;
+	font-size: 24px;
 	font-family: Sentinel, Georgia, times;
 	margin-top: 0;
 }
