@@ -1,0 +1,29 @@
+
+{% extends "4col.html" %}
+
+{% block heading %}{% endblock %}
+
+{% block pagination %}{% endblock %}
+
+{% block footer %}{% endblock %}
+
+{% block content %}
+
+	{% for row in entries|batch(4) %} 
+	<div class="row">
+		{% for entry in row %}
+			<div class="col-lg-3 portfolio-item">
+				<div class="portfolio-container {{ entry.category[0] }}">
+					<div class="portfolio-inner">
+						<h1>{{ entry.title }}</h1>
+						<p><a href="{{ entry.link }}">{{ entry.link }}</a></p>
+						<p>{{ entry.description }}</p>
+					</div>
+				</div>
+			</div>
+		{% endfor %}	
+	</div>
+	{% endfor %}
+
+{% endblock %}
+

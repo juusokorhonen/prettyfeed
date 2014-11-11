@@ -1,0 +1,106 @@
+/*!
+ * Start Bootstrap - 4 Col Portfolio HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+html {
+	height: 100%;
+}
+
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 0px;
+    background-color: #00A8B4;
+    height: 100%;
+    font-family: Nimbus Sans, Arial, sans-serif; 
+}
+
+.container-fluid {
+	height: 100%;
+	width: 100%;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+
+.portfolio-item {
+	height: 100%;
+	padding: 10px 10px;
+	margin: 0px 0px;
+	/*border: 1px solid black;*/
+}
+
+.portfolio-container {
+	padding: 20px 20px;
+	margin: 0px;
+	/*border: 1px dashed black;*/
+	height: 100%;
+}
+
+.portfolio-container.tutkimus {
+	background-color: #a0c754;
+}
+
+.portfolio-container.opiskelu {
+	background-color: #88c9b8;
+}
+
+.portfolio-container.yhteistyo {
+	background-color: #d8a34a;
+}
+
+.portfolio-container.palkitut {
+	background-color: #d880a4;
+}
+
+.portfolio-container.muut {
+	background-color: #cad774;
+}
+
+.portfolio-inner {
+	height: 100%;
+	margin: 0 0;
+	padding: 0 0;
+	text-overflow: ellipsis;
+	white-space: normal;
+	overflow: hidden;
+	/*border: 1px solid red;*/
+}
+
+.portfolio-inner p > a {
+	font-family: Sentinel, Georgia, times;
+	font-size: 14px;
+	font-style: oblique;
+	font-weight: bold;
+	text-decoration: none;
+	color: #555;
+}
+
+.portfolio-inner > h1 {
+	font-size: 20px;
+	font-family: Sentinel, Georgia, times;
+	margin-top: 0;
+}
+
+
+
+footer {
+    margin: 50px 0;
+}
+
+.navbar {
+	background-color: black;
+}
+
+.navbar-title {
+	float: left;
+	height: 50px;
+	padding: 15px 15px;
+	font-size: 18px;
+	line-height: 20px;
+	color: #00A8B4;	
+}
+
+

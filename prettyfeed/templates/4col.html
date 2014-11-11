@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>4 Col Portfolio - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+		<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+		<link href="{{ url_for('static', filename='css/4-col-portfolio.css') }}" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <span class="navbar-title">{{ config.SITE_TITLE|safe or 'Pretty Feed' }}</span>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#" class="active">Feed 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Feed 2</a>
+                    </li>
+                    <li>
+                        <a href="#">Feed 3</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+		<div class="container-fluid">
+		{% block content %}
+				<!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+							{% block heading %}
+                <h1 class="page-header">Page Heading
+                    <small>Secondary Text</small>
+                </h1>
+							{% endblock %}
+            </div>
+        </div>
+        <!-- /.row -->
+
+
+        <!-- Projects Row -->
+				{% block rows %}
+        <div class="row">
+            <div class="col-lg-3 portfolio-item">
+								{% block row1col1 %}
+								<div class="portfolio-container">
+										{% block row1col1content %}{% endblock %}
+								</div>
+								{% endblock %}
+            </div>
+            <div class="col-lg-3 portfolio-item">
+								{% block row1col2 %}
+									<div class="portfolio-container">
+										{% block row1col2content %}{% endblock %}
+									</div>
+								{% endblock %}
+            </div>
+            <div class="col-lg-3 portfolio-item">
+								{% block row1col3 %}
+									<div class="portfolio-container">
+										{% block row1col3content %}{% endblock %}
+									</div>
+								{% endblock %}
+            </div>
+            <div class="col-lg-3 portfolio-item">
+								{% block row1col4 %}
+									<div class="portfolio-container">
+										{% block row1col4content %}{% endblock %}
+									</div>
+								{% endblock %}
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Projects Row -->
+        <div class="row">
+            <div class="col-lg-3 portfolio-item">
+								{% block row2col1 %}
+									<div class="portfolio-container">
+										{% block row2col1content %}{% endblock %}
+									</div>
+								{% endblock %}
+            </div>
+            <div class="col-lg-3 portfolio-item">
+								{% block row2col2 %}
+									<div class="portfolio-container">
+										{% block row2col2content %}{% endblock %}
+									</div>
+								{% endblock %}
+            </div>
+            <div class="col-lg-3 portfolio-item">
+								{% block row2col3 %}
+									<div class="portfolio-container">
+										{% block row2col3content %}{% endblock %}
+									</div>
+								{% endblock %}
+            </div>
+            <div class="col-lg-3 portfolio-item">
+								{% block row2col4 %}
+									<div class="portfolio-container">
+										{% block row2col4content %}{% endblock %}
+									</div>
+								{% endblock %}
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Projects Row -->
+        <div class="row">
+            <div class="col-lg-3 portfolio-item">
+								{% block row3col1 %}
+									<div class="portfolio-container">
+										{% block row3col1content %}{% endblock %}
+									</div>
+								{% endblock %}
+            </div>
+            <div class="col-lg-3 portfolio-item">
+								{% block row3col2 %}
+									<div class="portfolio-container">
+										{% block row3col2content %}{% endblock %}
+									</div>
+								{% endblock %}
+            </div>
+            <div class="col-lg-3 portfolio-item">
+								{% block row3col3 %}
+									<div class="portfolio-container">
+										{% block row3col3content %}{% endblock %}
+									</div>
+								{% endblock %}
+            </div>
+            <div class="col-lg-3 portfolio-item">
+								{% block row3col4 %}
+									<div class="portfolio-container">
+										{% block row3col4content %}{% endblock %}
+                	</div>
+								{% endblock %}
+            </div>
+        </div>
+				{% endblock %}
+        <!-- /.row -->
+
+        <!-- Pagination -->
+				{% block pagination %}
+				<hr />
+        <div class="row text-center">
+            <div class="col-lg-12">
+                <ul class="pagination">
+                    <li>
+                        <a href="#">&laquo;</a>
+                    </li>
+                    <li class="active">
+                        <a href="#">1</a>
+                    </li>
+                    <li>
+                        <a href="#">2</a>
+                    </li>
+                    <li>
+                        <a href="#">3</a>
+                    </li>
+                    <li>
+                        <a href="#">4</a>
+                    </li>
+                    <li>
+                        <a href="#">5</a>
+                    </li>
+                    <li>
+                        <a href="#">&raquo;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+				{% endblock %}
+        <!-- /.row -->
+
+        <!-- Footer -->
+				{% block footer %}
+				<hr />
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+				{% endblock %}
+
+		{% endblock %}
+  	</div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+		<script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+
+		<!-- Tweaks -->
+<script>
+function resizePortfolio() {
+	boxes = $('.portfolio-item');
+	fullHeight = $('.container-fluid').height();
+	boxes.height(fullHeight/3-25);
+}
+$(document).on('ready', resizePortfolio());
+</script>
+
+    <!-- Bootstrap Core JavaScript -->
+		<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+</body>
+
+</html>

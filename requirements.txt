@@ -1,0 +1,6 @@
+Flask
+flask-appconfig
+flask-bootstrap
+feedparser
+beautifulsoup4
+unidecode
