@@ -38,27 +38,65 @@ def create_app(config=None, configfile=None):
     if (app.config.get('PRODUCTION')):
         pass
 
+    # Add custom filter to jinja
+    app.jinja_env.filters['expandlist'] = _jinja2_filter_expandlist
+
     # Add frontpage
     @app.route('/')
-    def welcome_page():
+    @app.route('/feed/<int:feed_index>')
+    @app.route('/feed/<feed_link>')
+    def feed_page(feed_link=None, feed_index=None):
         import time
         import feedparser
         from bs4 import BeautifulSoup
         from unidecode import unidecode
         from string import lower
 
-        rss = feedparser.parse("http://www.aalto.fi/fi/current/news/rss.xml")
+        if not feed_index:
+            try:
+                if not feed_link:
+                    # No feed link was provided, so show the first one
+                    feed_index = 0
+                else:
+                    # Try to extract the feed link number
+                    feed_index = [x[1] for x in app.config.get('FEEDS')].index(feed_link)
+            except ValueError as ve:
+                abort(404)
+            except Exception as e:
+                print(e)
+                import traceback
+                print(traceback.format_exc())
+                feed_index = 0
+
+        try:
+            feedDesc, feedLink, feedURL = app.config.get('FEEDS')[feed_index]
+        except:
+            #feedDesc, feedLink, feedURL = ('Test Feed', 'test_feed', 'http://feedparser.org/docs/examples/atom10.xml')
+            abort(404)
+
+        rss = feedparser.parse(feedURL)
+
         maxEntries = 12 
         rssFormatted = []
         for post in rss.entries[:maxEntries]:
             date_p = post.published_parsed
             date = time.strftime("%d.%m.%Y", date_p)
-            category = unidecode(lower(post.category)).split(',')
+            
+            catstr = unidecode(lower(post.category))
+            for fr,to in [(u"tutkimus", u"research"),
+                          (u"palkitut", u"honored"),
+                          (u"opiskelu", u"studies"),
+                          (u"yhteistyo", u"cooperation"),
+                          (u"muut", u"other")]:
+                catstr = catstr.replace(fr, to)
+            category = catstr.split(',')
+
             # We use BeautifulSoup to strip html from the description
             descSoup = BeautifulSoup(post.description)
             desc = descSoup.getText()
             postDict = {'date': date,
                         'category': category,
+                        'category_unformatted': post.category.replace(u",", u", "),
                         'title': post.title,
                         'description': desc,
                         'link': post.link}
@@ -70,3 +108,16 @@ def create_app(config=None, configfile=None):
 
     return app
 
+def _jinja2_filter_expandlist(data):
+    if data:
+        if (not isinstance(data, basestring)):
+            delimiter = u""
+            datastr = u""
+            for d in data:
+                datastr = u"{}{}{}".format(datastr, delimiter, unicode.title(d))
+                delimiter = u", "
+            return datastr
+        else:
+            return unicode.title(data)
+    else: 
+        return None

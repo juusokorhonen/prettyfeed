@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>4 Col Portfolio - Start Bootstrap Template</title>
+		<title>{{ config.SITE_TITLE|safe or 'Pretty Feed' }}</title>
 
     <!-- Bootstrap Core CSS -->
 		<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
@@ -43,15 +43,12 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
+									{% for feed in config.FEEDS %}
                     <li>
-                        <a href="#" class="active">Feed 1</a>
+										<a href="{{ url_for('feed_page', feed_link=feed[1]) }}">{{ feed[0] }}</a>
                     </li>
-                    <li>
-                        <a href="#">Feed 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Feed 3</a>
-                    </li>
+									{% endfor %}
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -236,6 +233,16 @@ function resizePortfolio() {
 	boxes.height(fullHeight/3-25);
 }
 $(document).on('ready', resizePortfolio());
+</script>
+<script>
+var url = window.location;
+// Will only work if string in href matches with location
+$('ul.nav a[href="'+ url +'"]').parent().addClass('active');
+
+// Will also work for relative and absolute hrefs
+$('ul.nav a').filter(function() {
+    return this.href == url;
+}).parent().addClass('active');
 </script>
 
     <!-- Bootstrap Core JavaScript -->

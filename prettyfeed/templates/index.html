@@ -15,8 +15,9 @@
 			<div class="col-lg-3 portfolio-item">
 				<div class="portfolio-container {{ entry.category[0] }}">
 					<div class="portfolio-inner">
+						<p class="date">{{ entry.date }}</p>
+						<p class="category">{{ entry.category_unformatted }}</p>
 						<h1>{{ entry.title }}</h1>
-						<p><a href="{{ entry.link }}">{{ entry.link }}</a></p>
 						<p>{{ entry.description }}</p>
 					</div>
 				</div>

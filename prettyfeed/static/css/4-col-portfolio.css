@@ -39,23 +39,23 @@ body {
 	height: 100%;
 }
 
-.portfolio-container.tutkimus {
+.portfolio-container.research {
 	background-color: #a0c754;
 }
 
-.portfolio-container.opiskelu {
+.portfolio-container.studies {
 	background-color: #88c9b8;
 }
 
-.portfolio-container.yhteistyo {
+.portfolio-container.cooperation {
 	background-color: #d8a34a;
 }
 
-.portfolio-container.palkitut {
+.portfolio-container.honored {
 	background-color: #d880a4;
 }
 
-.portfolio-container.muut {
+.portfolio-container.other {
 	background-color: #cad774;
 }
 
@@ -89,6 +89,15 @@ body {
 	margin-top: 0;
 }
 
+.portfolio-inner > p.category {
+	font-size: 12px;
+	text-transform: uppercase;
+}
+
+.portfolio-inner > p.date {
+	font-size: 12px;
+	float: right;
+}
 
 
 footer {
