@@ -7,7 +7,7 @@ class Config(object):
 
 class DevelopmentConfig(Config):
     DEBUG = True 
-    SITE_TITLE = u"Aalto-NMC"
+    SITE_TITLE = u"Aalto University PrettyFeed"
     FEEDS = [('Aalto Uutiset', 'aalto_uutiset', "http://www.aalto.fi/fi/current/news/rss.xml"),
              ('Aalto News', 'aalto_news', "http://www.aalto.fi/en/current/news/rss.xml")]
 
